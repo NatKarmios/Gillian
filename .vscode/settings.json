@@ -1,6 +1,7 @@
 {
   "search.exclude": {
-    "esy.lock/**": true
+    "esy.lock/**": true,
+    "out": true
   },
   "files.associations": {
     "stdlib.h": "c",

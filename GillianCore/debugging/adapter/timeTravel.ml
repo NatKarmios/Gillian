@@ -36,6 +36,45 @@ module Make (Debugger : Debugger.S) = struct
             make ~reason:Stopped_event.Payload.Reason.Exception
               ~thread_id:(Some 0) ())
 
+  module Custom_step_command = struct
+    let type_ = "customStep"
+
+    module Arguments = struct
+      type t = Empty_dict.t
+      [@@deriving yojson]
+    end
+
+    module Result = struct
+      type t = Empty_dict.t
+      [@@deriving yojson]
+    end
+  end
+
+  module Two_way_test_command = struct
+    let type_ = "twoWay"
+
+    module Arguments = struct
+      type t = Empty_dict.t
+      [@@deriving yojson]
+    end
+
+    module Result = struct
+      type t = Empty_dict.t
+      [@@deriving yojson]
+    end
+  end
+
+  module Custom_event = struct
+    let type_ = "custom"
+
+    module Payload = struct
+      type t = {
+        time: float
+      }
+      [@@deriving make, yojson]
+    end
+  end
+
   let run dbg rpc =
     let promise, resolver = Lwt.task () in
     Lwt.pause ();%lwt
@@ -76,5 +115,18 @@ module Make (Debugger : Debugger.S) = struct
         let () = Log.info "Step out request received" in
         let stop_reason = Debugger.step_out dbg in
         send_stopped_events stop_reason rpc resolver dbg);
+    Debug_rpc.set_command_handler rpc
+      (module Custom_step_command)
+      (fun _ ->
+        let () = Log.info "Custom step request recieved!" in
+        let stop_reason = Debugger.step dbg in
+        send_stopped_events stop_reason rpc resolver dbg);
+    Debug_rpc.set_command_handler rpc
+      (module Two_way_test_command)
+      (fun _ ->
+        let () = Log.info "Two-way test request recieved!" in
+        Debug_rpc.send_event rpc
+          (module Custom_event)
+          Custom_event.Payload.(make ~time:(Unix.time())));
     Lwt.join [ promise ]
 end

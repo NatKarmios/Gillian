@@ -7,5 +7,5 @@ then
 fi
 
 mkdir -p environment
-cp -r Examples/* environment/
+cp -r examples/* environment/
 cp scripts/*.sh environment

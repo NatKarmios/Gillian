@@ -10,8 +10,64 @@ import { activateCodeLens } from './activateCodeLens';
 import { activateDebug } from './activateDebug';
 
 export function activate(context: vscode.ExtensionContext) {
+    let panel: vscode.WebviewPanel;
+
 	activateDebug(context, new DebugAdapterExecutableFactory());
 	activateCodeLens(context);
+
+	vscode.debug.onDidStartDebugSession((debugSession) => {
+		panel = vscode.window.createWebviewPanel(
+			'gillianHelper',
+			'Gillian Debugger',
+			vscode.ViewColumn.One,
+			{ enableScripts: true }
+		);
+
+		panel.webview.html = `
+		    <!DOCTYPE html>
+		    <html lang="en">
+		    <head>
+		        <meta charset="UTF-8">
+			    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Gillian Debug Helper</title>
+				<script>
+					const vscode = acquireVsCodeApi();
+				</script>
+		    </head>
+			<body>
+				<button type="button" onClick="vscode.postMessage({ command: 'step' })">
+					Step forward (via custom event)
+				</button>
+				<br/>
+				<button type="button" onClick="vscode.postMessage({ command: 'twoWay' })">
+					Test two-way custom event
+				</button>
+			</body>
+			</html>
+		`;
+
+		panel.webview.onDidReceiveMessage(msg => {
+			switch (msg.command) {
+				case 'step':
+					vscode.window.showInformationMessage("Step!");
+					debugSession.customRequest('customStep');
+					break;
+				case 'twoWay':
+					vscode.window.showInformationMessage("Two way!");
+					debugSession.customRequest('twoWay');
+					break;
+			}
+		});
+	});
+
+	vscode.debug.onDidTerminateDebugSession((debugSession) => {
+		panel.dispose();
+	});
+
+	vscode.debug.onDidReceiveDebugSessionCustomEvent(e => {
+		const items = Object.entries(e.body).map(([k, v]) => `- ${k} : ${v}`).join("\n");
+		vscode.window.showInformationMessage(`Custom event fired! '${e.event}'\n${items}`);
+	});
 }
 
 export function deactivate() {

@@ -1,0 +1,3 @@
+(library
+ (name debugCommon)
+ (public_name gillian.debugging.common))

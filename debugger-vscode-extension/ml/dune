@@ -1,0 +1,5 @@
+(executable
+  (name extension_ml)
+  (modes js)
+  (libraries js_of_ocaml gillian.debugging.common)
+  (preprocess (pps js_of_ocaml-ppx)))

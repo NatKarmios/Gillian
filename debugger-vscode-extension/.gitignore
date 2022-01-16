@@ -1,5 +1,7 @@
 out
 dist
+ext
+ml.js
 node_modules
 .vscode-test/
 npm-debug.log

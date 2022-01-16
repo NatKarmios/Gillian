@@ -8,6 +8,7 @@ import * as vscode from 'vscode';
 import { ProviderResult } from 'vscode';
 import { activateCodeLens } from './activateCodeLens';
 import { activateDebug } from './activateDebug';
+import * as ml from './ml';
 
 export function activate(context: vscode.ExtensionContext) {
     let panel: vscode.WebviewPanel;
@@ -35,6 +36,8 @@ export function activate(context: vscode.ExtensionContext) {
 				</script>
 		    </head>
 			<body>
+				<i>Value from OCaml:</i> <b>${ml.getValFromGillian()}</b>
+				<br/>
 				<button type="button" onClick="vscode.postMessage({ command: 'step' })">
 					Step forward (via custom event)
 				</button>

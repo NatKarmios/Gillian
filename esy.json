@@ -60,7 +60,10 @@
     "install-githooks": "./githooks/install.ml",
     "clean-githooks": "./githooks/clean.ml",
     "clean": "dune clean",
-    "watch": "dune build @install --promote-install-files --watch"
+    "watch": "dune build @install --promote-install-files --watch",
+    "build-extension-ml": "dune build debugger-vscode-extension/ml/extension_ml.bc.js",
+    "copy-extension-ml": "cp -f ./_build/default/debugger-vscode-extension/ml/extension_ml.bc.js ./debugger-vscode-extension/src/ml.js",
+    "extension-ml": "esy build-extension-ml; esy copy-extension-ml"
   },
   "dependencies": {
     "@opam/alcotest": "1.0.1",

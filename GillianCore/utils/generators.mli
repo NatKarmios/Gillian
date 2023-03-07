@@ -1,4 +1,6 @@
-(** Unique name generators
+(** @canonical Gillian.Utils.Generators
+
+  Unique name generators
   
   These functions generate a unique name of a particular format on each call *)
 

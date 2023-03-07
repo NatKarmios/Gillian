@@ -1,4 +1,6 @@
-(** Some common instances of {!Set} *)
+(** @canonical Gillian.Utils.Containers
+    
+  Some common instances of [Set] *)
 
 (**/**)
 
@@ -24,7 +26,7 @@ end
 
 (** @canonical Gillian.Utils.Containers.SS *)
 module SS = struct
-  (** A {!Set} of [string]s *)
+  (** A [Set] of [string]s *)
 
   include Set.Make (String)
 
@@ -50,21 +52,21 @@ end
 
 (** @canonical Gillian.Utils.Containers.SI *)
 module SI = struct
-  (** A {!Set} of [int]s *)
+  (** A [Set] of [int]s *)
 
   include Set.Make (MyInt)
 end
 
 (** @canonical Gillian.Utils.Containers.SB *)
 module SB = struct
-  (** A {!Set} of [bool]s *)
+  (** A [Set] of [bool]s *)
 
   include Set.Make (MyBool)
 end
 
 (** @canonical Gillian.Utils.Containers.SN *)
 module SN = struct
-  (** A {!Set} of [float]s *)
+  (** A [Set] of [float]s *)
 
   include Set.Make (MyNumber)
 end

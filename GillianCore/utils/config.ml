@@ -1,4 +1,6 @@
-(** Configuration for the framework
+(** @canonical Gillian.Utils.Config
+
+  Configuration for the framework
 
   This mostly consists of modifiable flags and hardcoded values *)
 

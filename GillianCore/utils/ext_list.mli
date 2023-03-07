@@ -1,8 +1,8 @@
-(** @canonical Gillian.Utils.Ext_list
-
-  A variable-length list
+(** A variable-length list
   
-  A lot of functions here are self-explanatory analogs of {!List} functions *)
+  A lot of functions here are self-explanatory analogs of [List] functions
+  
+  @canonical Gillian.Utils.Ext_list *)
 
 type 'a t [@@deriving yojson]
 
@@ -75,7 +75,8 @@ val filter_map_stop :
   If an element is not kept, the stop condition is not checked
 
 
-  {[filter_stop_cond ~keep:(fun x -> x > 5) ~cond:(fun x -> x = 10) \[ 1; 2; 6; 10; 4 \]]} will return
+  {[filter_stop_cond ~keep:(fun x -> x > 5) ~cond:(fun x -> x = 10) \[ 1; 2; 6; 10; 4 \]]}
+  will return
   [\[ 6; 10; 4 \]]
 *)
 val filter_stop_cond : keep:('a -> bool) -> cond:('a -> bool) -> 'a t -> bool

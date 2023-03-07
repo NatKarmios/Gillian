@@ -1,4 +1,6 @@
-(** Input/output helper functions *)
+(** @canonical Gillian.Utils.Io_utils
+    
+  Input/output helper functions *)
 
 (** Create a folder safely *)
 let safe_mkdir path = if not (Sys.file_exists path) then Unix.mkdir path 0o777

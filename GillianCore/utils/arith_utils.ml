@@ -1,4 +1,6 @@
-(** Utility functions for floating point arithmetic *)
+(** @canonical Gillian.Utils.Arith_utils
+    
+  Utility functions for floating point arithmetic *)
 
 (** Checks if a float is an integer
     

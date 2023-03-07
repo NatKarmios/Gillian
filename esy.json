@@ -12,66 +12,19 @@
   "esy": {
     "build": "dune build @install --promote-install-files",
     "install": [
-      "esy-installer gillian.install",
-      "esy-installer gillian-js.install",
-      "esy-installer gillian-c.install",
-      "esy-installer wisl.install"
+      "esy-installer gillian.install"
     ],
-    "release": {
-      "bin": [
-        "gillian-js",
-        "gillian-c",
-        "wisl"
-      ],
-      "includePackages": [
-        "root",
-        "@opam/z3",
-        "compcert"
-      ]
-    },
-    "buildsInSource": "_build",
-    "exportedEnv": {
-      "GILLIAN_JS_RUNTIME_PATH": {
-        "scope": "global",
-        "val": "#{self.share}/gillian-js"
-      },
-      "WISL_RUNTIME_PATH": {
-        "val": "#{self.share}/wisl",
-        "scope": "global"
-      },
-      "GILLIAN_C_RUNTIME_PATH": {
-        "scope": "global",
-        "val": "#{self.share}/gillian-c"
-      },
-      "CPATH": {
-        "scope": "global",
-        "val": "#{self.share / 'include' : $CPATH}"
-      }
-    }
+    "buildsInSource": "_build"
   },
   "scripts": {
     "format-check": "dune build @fmt",
     "format": "dune build @fmt --auto-promote",
-    "js:init:env": "Gillian-JS/scripts/setup_environment.sh",
-    "c:init:env": "Gillian-C/scripts/setup_environment.sh",
-    "wisl:init:env": "wisl/scripts/setup_environment.sh",
-    "init:env": "sh -c \"esy js:init:env && esy c:init:env && esy wisl:init:env\"",
-    "test": "dune test",
-    "install-githooks": "./githooks/install.ml",
-    "clean-githooks": "./githooks/clean.ml",
     "clean": "dune clean",
     "watch": "dune build @install --promote-install-files --watch",
-    "odoc": "sh -c \"esy x dune build @doc && ./scripts/sync_odoc.sh > /dev/null\"",
-    "odoc:watch:build": "dune build @doc --watch",
-    "odoc:watch:sync": "sh -c \"./scripts/watch_odoc.sh > /dev/null\"",
-    "odoc:watch": "concurrently -n odoc,sync -c cyan,blue \"esy odoc:watch:build\" \"esy odoc:watch:sync\"",
-    "sphinx": "sphinx-build sphinx _docs/sphinx/",
-    "sphinx:watch": "sphinx-autobuild sphinx _docs/sphinx/",
-    "docs": "./scripts/build_docs.sh",
-    "docs:watch": "concurrently -n odoc,odoc-sync,sphinx -c cyan,blue,yellow \"esy odoc:watch:build\" \"esy odoc:watch:sync\" \"esy sphinx:watch\""
+    "odoc": "dune build @doc",
+    "odoc:watch": "dune build @doc --watch"
   },
   "dependencies": {
-    "@opam/alcotest": "1.0.1",
     "@opam/batteries": "^3.0.0",
     "@opam/cmdliner": "^1.1.1",
     "@opam/dune": "^3.0",

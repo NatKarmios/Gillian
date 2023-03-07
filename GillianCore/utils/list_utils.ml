@@ -1,4 +1,6 @@
-(** Helper functions for {!List}s *)
+(** @canonical Gillian.Utils.List_utils
+    
+  Helper functions for [List]s *)
 
 (** Cross product of two lists, l1 and l2, combining its elements with function f
 
@@ -40,7 +42,7 @@ let rec list_product l =
       let tail_product = list_product tl in
       aux ~acc:[] l1 tail_product
 
-(** The same as {!List.combine}, but allows the first list to be longer than the second *)
+(** The same as [List.combine], but allows the first list to be longer than the second *)
 let right_combine (lst1 : 'a list) (lst2 : 'b list) : ('a * 'b) list =
   let rec loop lst1 lst2 comb_lst =
     match (lst1, lst2) with
@@ -70,7 +72,7 @@ let split_at (lst : 'a list) (len : int) : 'a list * 'a list =
   in
   f 0 [] lst
 
-(** Similar to {!List.filter_map}, but returns [None] if, for any element [x], [f x = None] *)
+(** Similar to [List.filter_map], but returns [None] if, for any element [x], [f x = None] *)
 let rec flaky_map f =
   let ( let* ) = Option.bind in
   function
@@ -153,12 +155,12 @@ let hd_tl = function
   | x :: xs -> (Some x, xs)
   | [] -> (None, [])
 
-(** [Option]-returning version of {!List.hd}*)
+(** [Option]-returning version of [List.hd]*)
 let hd_opt = function
   | x :: _ -> Some x
   | [] -> None
 
-(** [Option]-returning version of {!List.tl}*)
+(** [Option]-returning version of [List.tl]*)
 let rec tl_opt = function
   | [] -> None
   | [ x ] -> Some x

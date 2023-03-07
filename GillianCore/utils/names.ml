@@ -1,4 +1,6 @@
-(** Prefix constants for variable names, with testers and builders *)
+(** @canonical Gillian.Utils.Names
+    
+  Prefix constants for variable names, with testers and builders *)
 
 (** {2 Special names} *)
 

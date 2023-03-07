@@ -1,5 +1,5 @@
 {
-  "checksum": "1a6b4d7fe6163b80cf9566b6557dcf9e",
+  "checksum": "ef7f0502b839ecf7f71ed42e5a3e020f",
   "root": "gillian-platform@link-dev:./esy.json",
   "node": {
     "yargs-parser@21.1.1@d41d8cd9": {
@@ -286,8 +286,7 @@
         "@opam/menhir@opam:20220210@ff5ea9a7",
         "@opam/fmt@opam:0.9.0@87213963", "@opam/dune@opam:3.7.0@95218dc4",
         "@opam/cmdliner@opam:1.1.1@03763729",
-        "@opam/batteries@opam:3.6.0@81170124",
-        "@opam/alcotest@opam:1.0.1@aba26ba2"
+        "@opam/batteries@opam:3.6.0@81170124"
       ],
       "devDependencies": [
         "ocaml@4.14.0@d41d8cd9", "concurrently@7.6.0@d41d8cd9",
@@ -2819,41 +2818,6 @@
         "@esy-ocaml/substs@0.0.1@d41d8cd9"
       ],
       "devDependencies": [ "ocaml@4.14.0@d41d8cd9" ]
-    },
-    "@opam/alcotest@opam:1.0.1@aba26ba2": {
-      "id": "@opam/alcotest@opam:1.0.1@aba26ba2",
-      "name": "@opam/alcotest",
-      "version": "opam:1.0.1",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://opam.ocaml.org/cache/sha256/0c/0c8748838a89df6dee4850aa7ef5e46c573265a9bf1589dec255bd8156a793f6#sha256:0c8748838a89df6dee4850aa7ef5e46c573265a9bf1589dec255bd8156a793f6",
-          "archive:https://github.com/mirage/alcotest/releases/download/1.0.1/alcotest-1.0.1.tbz#sha256:0c8748838a89df6dee4850aa7ef5e46c573265a9bf1589dec255bd8156a793f6"
-        ],
-        "opam": {
-          "name": "alcotest",
-          "version": "1.0.1",
-          "path": "esy.lock/opam/alcotest.1.0.1"
-        }
-      },
-      "overrides": [],
-      "dependencies": [
-        "ocaml@4.14.0@d41d8cd9", "@opam/uuidm@opam:0.9.7@a349b245",
-        "@opam/stdlib-shims@opam:0.3.0@72c7bc98",
-        "@opam/re@opam:1.10.4@c4910ba6", "@opam/fmt@opam:0.9.0@87213963",
-        "@opam/dune@opam:3.7.0@95218dc4",
-        "@opam/cmdliner@opam:1.1.1@03763729",
-        "@opam/astring@opam:0.8.5@1300cee8",
-        "@esy-ocaml/substs@0.0.1@d41d8cd9"
-      ],
-      "devDependencies": [
-        "ocaml@4.14.0@d41d8cd9", "@opam/uuidm@opam:0.9.7@a349b245",
-        "@opam/stdlib-shims@opam:0.3.0@72c7bc98",
-        "@opam/re@opam:1.10.4@c4910ba6", "@opam/fmt@opam:0.9.0@87213963",
-        "@opam/dune@opam:3.7.0@95218dc4",
-        "@opam/cmdliner@opam:1.1.1@03763729",
-        "@opam/astring@opam:0.8.5@1300cee8"
-      ]
     },
     "@esy-ocaml/substs@0.0.1@d41d8cd9": {
       "id": "@esy-ocaml/substs@0.0.1@d41d8cd9",

@@ -1,4 +1,0 @@
-(library
- (name debugging)
- (libraries gillian semantics js2jsil_lib)
- (flags :standard -open Gillian))

@@ -1,5 +1,0 @@
-(executable
- (name gillian_c)
- (public_name gillian-c)
- (package gillian-c)
- (libraries cgil_lib gillian))

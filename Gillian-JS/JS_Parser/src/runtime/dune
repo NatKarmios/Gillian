@@ -1,4 +1,0 @@
-(install
- (files preamble.js)
- (section share)
- (package gillian-js))

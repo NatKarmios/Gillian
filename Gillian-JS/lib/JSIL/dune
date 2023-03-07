@@ -1,6 +1,0 @@
-(library
- (name jsil_syntax)
- (libraries gillian)
- (preprocess
-  (pps ppx_deriving.std ppx_deriving_yojson))
- (flags :standard -open Utils -open Gillian.Utils))

@@ -1,7 +1,0 @@
-(library
- (name incrementalAnalysis)
- (package gillian)
- (libraries utils gil_syntax fmt)
- (preprocess
-  (pps ppx_deriving_yojson))
- (flags :standard -open Utils -open Utils.Prelude -open Gil_syntax))

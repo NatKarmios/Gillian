@@ -1,7 +1,0 @@
-(library
- (name monadic)
- (package gillian)
- (flags -open Utils.Prelude)
- (libraries gil_syntax engine utils fmt logging)
- (preprocess
-  (pps ppx_deriving.std ppx_deriving_yojson)))

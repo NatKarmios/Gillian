@@ -91,6 +91,5 @@ end
 (**/**)
 
 module Preprocessing_utils = Preprocessing_utils
-module Statistics = Statistics
 
 (**/**)

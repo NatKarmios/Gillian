@@ -1,4 +1,0 @@
-(library
- (name z3_encoding)
- (package gillian)
- (libraries z3 gil_syntax logging utils))

@@ -71,6 +71,7 @@ struct
                   (PC)
                   (Debug_adapter.Make (Symb_debugger)));
         (module Bulk_console.Make (PC) (Runners));
+        (module Grok_console.Make (ID) (PC) (Verification));
       ]
     in
     let cmds =
